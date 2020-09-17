@@ -2,14 +2,16 @@
 
 INSTALL_EXEC="/usr/local/bin/git-peek"
 
-SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+PROJECT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; cd ../ ; pwd -P )
 
-if [ -L $INSTALL_EXEC ]
+
+if [ -f $INSTALL_EXEC ]
 then
   echo "Already installed."
 else
   yarn build
-  ln -s "$SCRIPTPATH/run.sh" $INSTALL_EXEC
-  chmod +x "$SCRIPTPATH/run.sh"
+  SCRIPT="#! /usr/bin/env bash\nnode ${PROJECT_PATH}/dist/main.js \$@"
+  echo -e $SCRIPT > $INSTALL_EXEC
+  chmod +x $INSTALL_EXEC
   echo "Installation done!"
 fi
