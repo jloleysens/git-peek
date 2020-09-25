@@ -20,7 +20,7 @@ If the above is true, this CLI can save you time!
 
 ## How to use it
 
-See the help text in <a href="./git-peek/tree/master/source/main.ts">here</a>.
+See the help text in <a href="./source/main.ts">here</a>.
 
 ## What does it do?
 
