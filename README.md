@@ -11,8 +11,9 @@ The idea behind this CLI is that in a large number of cases those steps are unne
 
 ## When to use it
 
-* You have access to a git-diff available over the Internet.
-* You need to test or review the changes that git-diff introduces.
+* You need to test or review the changes that diff introduces.
+* You have access to the diff over the Internet.
+* The diff applies to your branch (e.g., same target as the branch you are on).
 * The diff you need to review does not depend on different APIs or dependencies from the branch you are on.
 * Your current project is big and probably takes a long time to restart/rebuild.
 

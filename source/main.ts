@@ -10,7 +10,7 @@ import {createGitPeek, gitPeekExists, readGitPeek, removeGitPeek} from './fs';
 
 const helpText = `git-peek
 usage:
-  peek [diff-url] - check out a remote diff
+  peek [diff-url] - check out a remote diff. On github you can see the diff for a PR by adding ".diff" to the PR url.
   done - complete checking out a remote diff
 `;
 
