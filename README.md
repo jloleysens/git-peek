@@ -1,20 +1,26 @@
 ## Introduction
 
-Do you work on really large JS code projects that take a long time to build and start up?
+Apply a remote diff to your current branch without changing branches. In certain scenarios this can
+save:
 
-Do you do a lot of code review in large code bases while also developing in these codebases?
+- Downloading a branch ref and checking it out
+- Restarting a large project
+- Losing your current work
 
-Are you tired of pulling down branches your colleagues created?
+The idea behind this CLI is that in a large number of cases those steps are unnecssary. All you you want to do is take a look at someone else's proposed code changes that are isolated to specific corner of a codebase -- which leads to the next section:
 
-If you answered "ZOMFG yESd!" to the above this repo contains code that you might be interested in.
+## When to use it
 
-## What is this?
+* You have access to a git-diff available over the Internet.
+* You need to test or review the changes that git-diff introduces.
+* The diff you need to review does not depend on different APIs or dependencies from the branch you are on.
+* Your current project is big and probably takes a long time to restart/rebuild.
 
-This is a little command line interface for `git apply`ing git diffs to your local repository. I call it `git-peek`.
+If the above is true, this CLI can save you time!
 
-## How does it work?
+## How to use it
 
-See the help text!
+See the help text in <a href="./git-peek/tree/master/source/main.ts">here</a>.
 
 ## What does it do?
 
@@ -26,9 +32,12 @@ Essentially, by executing the following sequence of steps:
 
 In a nutshell `curl -L https://mygitremote.none/some-diff | git apply` with some fanciness. Who doesn't like some fanciness?
 
-Oh, did I mention this uses `git`? Yeah, it won't work without `git`.
+Then when you are done, it will:
 
-Once you are done peeking (you peeker you!) and you want to get back to where you were simply tell `git-keep` you are done and it will drop you right back where you were by popping your changes from the stash (noice!).
+1. Clean your working tree... This can be destructive!
+2. Checkout any modified files back to HEAD
+3. Unstash any changes it stashed
+
 
 ## Disclaimer
 
